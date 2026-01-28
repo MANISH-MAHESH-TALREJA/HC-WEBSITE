@@ -339,7 +339,7 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="contact-part">
-                        <form class="contact-form subscribeForm">
+                        <form class="contact-form subscribeForm2" id="pageSubscribeForm">
                             <div id="formMsg"></div>
                             <input type="hidden" name="secret" value="SASYAMRIT123">
 
@@ -385,62 +385,106 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
+                                    <style>
+                                        /* 1. Bold borders for all form elements */
+                                        .contact-form select,
+                                        .contact-form input,
+                                        .contact-form textarea,
+                                        .select2-container--default .select2-selection--single {
+                                            border: 2px solid #dcdcdc !important; /* Increased from 1px to 2px */
+                                            border-radius: 8px !important;
+                                        }
+
+                                        /* 2. Style the Select2 container to match height and padding */
+                                        .select2-container .select2-selection--single {
+                                            height: 50px !important; /* Matches your padding/font-size height */
+                                            display: flex;
+                                            align-items: center;
+                                            background-color: white !important;
+                                        }
+
+                                        /* 3. Style the text inside Select2 */
+                                        .select2-container--default .select2-selection--single .select2-selection__rendered {
+                                            color: #333 !important;
+                                            padding-left: 16px !important;
+                                            font-size: 16px;
+                                        }
+
+                                        /* 4. Match the custom arrow icon */
+                                        .select2-container--default .select2-selection--single .select2-selection__arrow {
+                                            height: 48px !important;
+                                            right: 12px !important;
+                                        }
+
+                                        /* 5. Focus state for Select2 to match other inputs */
+                                        .select2-container--default.select2-container--focus .select2-selection--single {
+                                            border-color: #3aa856 !important;
+                                            box-shadow: 0 0 6px rgba(58, 168, 86, 0.25) !important;
+                                        }
+
+                                        /* 6. Fix dropdown search and list styling (Optional but recommended) */
+                                        .select2-dropdown {
+                                            border: 2px solid #3aa856 !important;
+                                            border-radius: 8px !important;
+                                            overflow: hidden;
+                                        }
+
+                                    </style>
                                     <select name="location" id="location" class="location-select" required class="w-100">
                                         <option value="" disabled selected>Choose Location</option>
-                                        <option value="colaba">Colaba</option>
-                                        <option value="fort">Fort</option>
-                                        <option value="marine_lines">Marine Lines</option>
-                                        <option value="charni_road">Charni Road</option>
-                                        <option value="grant_road">Grant Road</option>
-                                        <option value="mumbai_central">Mumbai Central</option>
-                                        <option value="byculla">Byculla</option>
-                                        <option value="dadar">Dadar</option>
-                                        <option value="prabhadevi">Prabhadevi</option>
-                                        <option value="lower_parel">Lower Parel</option>
-                                        <option value="bandra">Bandra</option>
-                                        <option value="khar">Khar</option>
-                                        <option value="santacruz">Santacruz</option>
-                                        <option value="vile_parle">Vile Parle</option>
-                                        <option value="andheri">Andheri</option>
-                                        <option value="jogeshwari">Jogeshwari</option>
-                                        <option value="goregaon">Goregaon</option>
-                                        <option value="malad">Malad</option>
-                                        <option value="kandivali">Kandivali</option>
-                                        <option value="borivali">Borivali</option>
-                                        <option value="dahisar">Dahisar</option>
-                                        <option value="mira_road">Mira Road</option>
-                                        <option value="bhayandar">Bhayandar</option>
-                                        <option value="vasai">Vasai</option>
-                                        <option value="virar">Virar</option>
-                                        <option value="sion">Sion</option>
-                                        <option value="kurla">Kurla</option>
-                                        <option value="vidyavihar">Vidyavihar</option>
-                                        <option value="ghatkopar">Ghatkopar</option>
-                                        <option value="vikhroli">Vikhroli</option>
-                                        <option value="kanjurmarg">Kanjurmarg</option>
-                                        <option value="bhandup">Bhandup</option>
-                                        <option value="mulund">Mulund</option>
-                                        <option value="chembur">Chembur</option>
-                                        <option value="govandi">Govandi</option>
-                                        <option value="mankhurd">Mankhurd</option>
-                                        <option value="thane_city">Thane City (General)</option>
-                                        <option value="kalwa">Kalwa</option>
-                                        <option value="mumbra">Mumbra</option>
-                                        <option value="kalyan">Kalyan</option>
-                                        <option value="dombivli">Dombivli</option>
-                                        <option value="ambarnath">Ambernath</option>
-                                        <option value="badlapur">Badlapur</option>
-                                        <option value="bhiwandi">Bhiwandi</option>
-                                        <option value="vashi">Vashi</option>
-                                        <option value="belapur">Belapur</option>
-                                        <option value="nerul">Nerul</option>
-                                        <option value="kharghar">Kharghar</option>
-                                        <option value="panvel">Panvel</option>
-                                        <option value="airoli">Airoli</option>
-                                        <option value="koparkhairane">Koparkhairane</option>
-                                        <option value="ulwe">Ulwe</option>
-                                        <option value="dronagiri">Dronagiri</option>
-                                        <option value="other">Other / Not Listed</option>
+                                        <option value="Airoli">Airoli</option>
+                                        <option value="Ambernath">Ambernath</option>
+                                        <option value="Andheri">Andheri</option>
+                                        <option value="Badlapur">Badlapur</option>
+                                        <option value="Bandra">Bandra</option>
+                                        <option value="Belapur">Belapur</option>
+                                        <option value="Bhandup">Bhandup</option>
+                                        <option value="Bhayandar">Bhayandar</option>
+                                        <option value="Bhiwandi">Bhiwandi</option>
+                                        <option value="Borivali">Borivali</option>
+                                        <option value="Byculla">Byculla</option>
+                                        <option value="Charni Road">Charni Road</option>
+                                        <option value="Chembur">Chembur</option>
+                                        <option value="Colaba">Colaba</option>
+                                        <option value="Dadar">Dadar</option>
+                                        <option value="Dahisar">Dahisar</option>
+                                        <option value="Dombivli">Dombivli</option>
+                                        <option value="Dronagiri">Dronagiri</option>
+                                        <option value="Fort">Fort</option>
+                                        <option value="Ghatkopar">Ghatkopar</option>
+                                        <option value="Govandi">Govandi</option>
+                                        <option value="Grant Road">Grant Road</option>
+                                        <option value="Jogeshwari">Jogeshwari</option>
+                                        <option value="Kalwa">Kalwa</option>
+                                        <option value="Kalyan">Kalyan</option>
+                                        <option value="Kandivali">Kandivali</option>
+                                        <option value="Kanjurmarg">Kanjurmarg</option>
+                                        <option value="Khar">Khar</option>
+                                        <option value="Kharghar">Kharghar</option>
+                                        <option value="Koparkhairane">Koparkhairane</option>
+                                        <option value="Kurla">Kurla</option>
+                                        <option value="Lower Parel">Lower Parel</option>
+                                        <option value="Malad">Malad</option>
+                                        <option value="Mankhurd">Mankhurd</option>
+                                        <option value="Marine Lines">Marine Lines</option>
+                                        <option value="Mira Road">Mira Road</option>
+                                        <option value="Mulund">Mulund</option>
+                                        <option value="Mumbra">Mumbra</option>
+                                        <option value="Mumbai Central">Mumbai Central</option>
+                                        <option value="Nerul">Nerul</option>
+                                        <option value="Panvel">Panvel</option>
+                                        <option value="Prabhadevi">Prabhadevi</option>
+                                        <option value="Santacruz">Santacruz</option>
+                                        <option value="Sion">Sion</option>
+                                        <option value="Thane City">Thane City</option>
+                                        <option value="Ulwe">Ulwe</option>
+                                        <option value="Vasai">Vasai</option>
+                                        <option value="Vashi">Vashi</option>
+                                        <option value="Vidyavihar">Vidyavihar</option>
+                                        <option value="Vikhroli">Vikhroli</option>
+                                        <option value="Virar">Virar</option>
+
+                                        <option value="Other / Not Listed">Other / Not Listed</option>
                                     </select>
                                 </div>
 

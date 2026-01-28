@@ -96,6 +96,77 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const subscriptionForms = document.querySelector(".subscribeForm2");
+    if (subscriptionForms) {
+        subscriptionForms.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (loadingSpinner) loadingSpinner.style.display = "block";
+
+            const formData = new FormData(subscriptionForms);
+
+            fetch(url, {
+                method: "POST",
+                body: formData
+            })
+                .then(res => res.text())
+                .then(text => {
+                    console.log("RAW RESPONSE:", text);
+
+                    // 1️⃣ Hide loader
+                    if (loadingSpinner) {
+                        loadingSpinner.style.display = "none";
+                    }
+
+                    // 2️⃣ Close popup first
+                    try {
+                        closePopup();
+                    } catch (e) {
+                        console.warn("closePopup() not defined or failed", e);
+                    }
+
+
+                    // Small delay so DOM updates cleanly
+                    setTimeout(() => {
+                        // 3️⃣ Show SweetAlert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Subscription Received!',
+                            html: `
+                <p>Your subscription request has been<br>
+                received. A <b>Happy Cows Milk</b> representative<br>
+                will contact you within <b>24–48 hours</b> for<br>
+                verification.</p>
+                <br>
+                <b>Thank you!</b>
+            `,
+                            confirmButtonColor: '#7db931'
+                        });
+
+                        subscriptionForms.reset();
+                    }, 200);
+                })
+                .catch(err => {
+                    console.error("FETCH ERROR:", err);
+
+                    // Hide loader even on error
+                    if (loadingSpinner) {
+                        loadingSpinner.style.display = "none";
+                    }
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Submission Failed',
+                        text: 'Something went wrong. Please try again.',
+                        confirmButtonColor: '#d33'
+                    });
+                });
+
+        });
+    }
+});
+
 // ========== Contact Form ==========
 document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.getElementById("contactForm");
