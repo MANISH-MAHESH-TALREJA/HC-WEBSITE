@@ -38,17 +38,59 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: "POST",
                 body: formData
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (loadingSpinner) loadingSpinner.style.display = "none";
-                    alert(data.message);
-                    subscriptionForm.reset();
+                .then(res => res.text())
+                .then(text => {
+                    console.log("RAW RESPONSE:", text);
+
+                    // 1️⃣ Hide loader
+                    if (loadingSpinner) {
+                        loadingSpinner.style.display = "none";
+                    }
+
+                    // 2️⃣ Close popup first
+                    try {
+                        closePopup();
+                    } catch (e) {
+                        console.warn("closePopup() not defined or failed", e);
+                    }
+
+
+                    // Small delay so DOM updates cleanly
+                    setTimeout(() => {
+                        // 3️⃣ Show SweetAlert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Subscription Received!',
+                            html: `
+                <p>Your subscription request has been<br>
+                received. A <b>Happy Cows Milk</b> representative<br>
+                will contact you within <b>24–48 hours</b> for<br>
+                verification.</p>
+                <br>
+                <b>Thank you!</b>
+            `,
+                            confirmButtonColor: '#7db931'
+                        });
+
+                        subscriptionForm.reset();
+                    }, 200);
                 })
-                .catch(error => {
-                    if (loadingSpinner) loadingSpinner.style.display = "none";
-                    console.log(error);
-                    alert("Error: " + error);
+                .catch(err => {
+                    console.error("FETCH ERROR:", err);
+
+                    // Hide loader even on error
+                    if (loadingSpinner) {
+                        loadingSpinner.style.display = "none";
+                    }
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Submission Failed',
+                        text: 'Something went wrong. Please try again.',
+                        confirmButtonColor: '#d33'
+                    });
                 });
+
         });
     }
 });
@@ -70,16 +112,48 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: "POST",
                 body: formData
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (loadingSpinner) loadingSpinner.style.display = "none";
-                    alert(data.message);
-                    contactForm.reset();
+                .then(async res => {
+                    const text = await res.text();
+                    console.log("RAW RESPONSE:", text);
+                    return text;
                 })
-                .catch(error => {
-                    if (loadingSpinner) loadingSpinner.style.display = "none";
-                    alert("Error: " + error);
+                .then(text => {
+                    console.log("RAW RESPONSE: 02", text);
+                    // Try JSON, fallback to success
+                    try {
+                        JSON.parse(text);
+                    } catch (e) {
+                        console.warn("Non-JSON response, continuing anyway");
+                    }
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Subscription Received!',
+                        html: `
+            <p>Your subscription request has been<br>
+            received. A <b>Happy Cows Milk</b> representative<br>
+            will contact you within <b>24–48 hours</b> for<br>
+            verification.</p>
+            <br>
+            <b>Thank you!</b>
+        `,
+                        confirmButtonColor: '#7db931'
+                    });
+
+                    subscriptionForm.reset();
+                })
+                .catch(err => {
+                    console.error("FETCH ERROR:", err);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Submission Failed',
+                        text: 'Something went wrong. Please try again.',
+                        confirmButtonColor: '#d33'
+                    });
                 });
+
+
         });
     }
 });

@@ -124,6 +124,50 @@
                 font-weight: 600;
                 text-align: center;
             }
+
+            /* 1. Bold borders for all form elements */
+            .contact-form select,
+            .contact-form input,
+            .contact-form textarea,
+            .select2-container--default .select2-selection--single {
+                border: 2px solid #dcdcdc !important; /* Increased from 1px to 2px */
+                border-radius: 8px !important;
+            }
+
+            /* 2. Style the Select2 container to match height and padding */
+            .select2-container .select2-selection--single {
+                height: 50px !important; /* Matches your padding/font-size height */
+                display: flex;
+                align-items: center;
+                background-color: white !important;
+            }
+
+            /* 3. Style the text inside Select2 */
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+                color: #333 !important;
+                padding-left: 16px !important;
+                font-size: 16px;
+            }
+
+            /* 4. Match the custom arrow icon */
+            .select2-container--default .select2-selection--single .select2-selection__arrow {
+                height: 48px !important;
+                right: 12px !important;
+            }
+
+            /* 5. Focus state for Select2 to match other inputs */
+            .select2-container--default.select2-container--focus .select2-selection--single {
+                border-color: #3aa856 !important;
+                box-shadow: 0 0 6px rgba(58, 168, 86, 0.25) !important;
+            }
+
+            /* 6. Fix dropdown search and list styling (Optional but recommended) */
+            .select2-dropdown {
+                border: 2px solid #3aa856 !important;
+                border-radius: 8px !important;
+                overflow: hidden;
+            }
+
         </style>
     </head>
 
@@ -284,11 +328,11 @@
         <p>Submitting...</p>
     </div>
     <!-- Shop Page Section ending here -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- footer section start here -->
     <?php require_once('footer.php'); ?>
     <!-- footer section start here -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
