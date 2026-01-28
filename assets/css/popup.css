@@ -1,0 +1,336 @@
+/* Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Popup Box - MODIFIED */
+.popup {
+    background: #fff;
+    border-radius: 20px;
+    /* Removed text-align: center; */
+    padding: 0; /* Adjusted padding for internal layout */
+    max-width: 900px; /* Increased max-width for rectangular shape */
+    width: 60%; /* Cover 60% of the screen */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s ease;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    display: flex; /* Use flexbox for side-by-side columns */
+    overflow: hidden; /* Ensure rounded corners for image */
+}
+
+.popup.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Close Button */
+.popup .close-btn {
+    position: absolute;
+    top: 15px; /* Adjusted position */
+    right: 20px; /* Adjusted position */
+    font-size: 28px; /* Slightly larger for visibility */
+    color: #555;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10; /* Ensure it's above content */
+}
+
+.popup .close-btn:hover {
+    color: #e74c3c;
+}
+
+/* New styles for the two-column layout */
+.popup-left {
+    flex: 1; /* Takes up available space */
+    background: linear-gradient(135deg, #64a019, #83c236); /* Green background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.popup-left img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); /* Add some depth to the image */
+}
+
+.popup-left h2 {
+    color: white; /* Make heading white */
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.popup-left p {
+    color: rgba(255, 255, 255, 0.9); /* Slightly translucent white */
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.popup-right {
+    flex: 1.2; /* Takes up more space for the form */
+    padding: 40px; /* Internal padding for the form section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Existing form styling adjustments */
+.popup-right .contact-form select,
+.popup-right .contact-form input,
+.popup-right .contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px; /* Spacing between form fields */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box; /* Include padding/border in element's total width */
+    font-family: 'Poppins', sans-serif;
+}
+
+.popup-right .contact-form select {
+    -webkit-appearance: none; /* Remove default arrow on select */
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364a019%22%20d%3D%22M287%2C118.8L146.2%2C260.6L5.4%2C118.8c-11.3-11.3-11.3-29.5%2C0-40.9s29.5-11.3%2C40.9%2C0l100%2C100l100-100c11.3-11.3%2C29.5-11.3%2C40.9%2C0S298.3%2C107.5%2C287%2C118.8z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 40px; /* Space for the custom arrow */
+}
+
+/* Button - Existing styles for consistency */
+.popup-right button {
+    background: linear-gradient(90deg, #64a019, #83c236);
+    border: none;
+    color: white;
+    font-size: 17px; /* Slightly larger button text */
+    padding: 14px 30px; /* Slightly larger button padding */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%; /* Full width button */
+    margin-top: 10px; /* Space above the button */
+}
+
+.popup-right button:hover {
+    transform: scale(1.02); /* Slightly less dramatic hover effect */
+    background: linear-gradient(90deg, #5d9913, #7bb92f);
+}
+
+@media (max-width: 768px) { /* Adjust for tablets and smaller */
+    .popup {
+        flex-direction: column; /* Stack columns vertically */
+        width: 95%; /* Take more width on smaller screens */
+        max-width: 500px; /* Limit overall width */
+    }
+    .popup-left, .popup-right {
+        padding: 25px;
+    }
+    .popup-left h2 {
+        font-size: 28px;
+    }
+    .popup-left p {
+        font-size: 15px;
+    }
+    .popup .close-btn {
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-left {
+        padding: 20px;
+    }
+    .popup-right {
+        padding: 30px 25px;
+    }
+    .popup-left h2 {
+        font-size: 24px;
+    }
+    .popup-left p {
+        font-size: 14px;
+    }
+}
+
+/* Popup Box - MODIFIED for vertical spacing */
+.popup {
+    background: #fff;
+    border-radius: 20px;
+    padding: 0;
+    max-width: 900px;
+    width: 60%;
+    /* NEW: Added max-height and overflow-y for scroll if content exceeds */
+    max-height: 85vh; /* Limit height to 85% of viewport height */
+    overflow-y: auto; /* Add scrollbar if content overflows vertically */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s ease;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    overflow-x: hidden; /* Ensure horizontal content doesn't break layout */
+}
+
+/* Adjust padding for internal sections if needed to manage height */
+.popup-left {
+    flex: 1;
+    background: linear-gradient(135deg, #64a019, #83c236);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px; /* Slightly reduced padding */
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.popup-right {
+    flex: 1.2;
+    padding: 35px; /* Slightly reduced padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Media query for smaller screens - MODIFIED */
+@media (max-width: 768px) {
+    .popup {
+        flex-direction: column;
+        width: 95%;
+        max-width: 500px;
+        max-height: 90vh; /* Allow more height on mobile if needed */
+    }
+    .popup-left, .popup-right {
+        padding: 20px; /* Further reduced padding for mobile */
+    }
+    /* Other existing mobile styles... */
+}
+
+/* Overlay - Ensure it's the highest */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* 🟢 FIX 1: Increased Z-Index */
+}
+
+/* Popup Box */
+.popup {
+    background: #fff;
+    border-radius: 20px;
+    padding: 0;
+    max-width: 900px;
+    width: 60%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s ease;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Popup Left Column - Ensure it covers the full height */
+.popup-left {
+    /* The background gradient stays green */
+    background: linear-gradient(135deg, #64a019, #83c236);
+
+    /* 🟢 FIX 2: Set height to 100% and position sticky */
+    height: 100%; /* Ensures it covers the full height of the popup container */
+    position: sticky; /* Makes it stick within the scrolling parent */
+    top: 0; /* Sticks it to the top */
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    color: white;
+    text-align: center;
+}
+
+.popup-right {
+    flex: 1.2;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Media query adjustment for vertical stacking */
+@media (max-width: 768px) {
+    .popup {
+        flex-direction: column;
+        /* ... other styles ... */
+    }
+    .popup-left {
+        /* Remove sticky position on mobile when stacked vertically */
+        position: relative;
+        height: auto;
+    }
+    /* ... other mobile styles ... */
+}
+
+.popup-right {
+    flex: 1.2;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    /* 🟢 FIX: Align content to the top instead of centering */
+    justify-content: flex-start;
+
+    /* Optional: Add a little padding to the top if needed */
+    padding-top: 40px;
+
+}
+
+/* Button - Existing styles with added bottom margin */
+.popup-right button {
+    background: linear-gradient(90deg, #64a019, #83c236);
+    border: none;
+    color: white;
+    font-size: 17px;
+    padding: 14px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 10px;
+
+    /* 🟢 FIX: Added bottom margin for space */
+    margin-bottom: 20px;
+}
