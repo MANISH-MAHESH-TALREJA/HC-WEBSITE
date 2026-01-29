@@ -33,6 +33,298 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
+        <style>
+            /* --- Global Card Improvements --- */
+            .product-item {
+                background: #fff;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                transition: all 0.3s ease;
+                border: 1px solid #f0f0f0;
+            }
+
+            .product-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(125, 185, 49, 0.15);
+            }
+
+            /* --- Featured Large Card --- */
+            .product-featured {
+                padding: 20px;
+                border: 2px solid #7db931;
+            }
+
+            .product-featured .product-thumb {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .badge-featured {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                background: #7db931;
+                color: white;
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            .product-featured .brand-tag {
+                color: #7db931;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .product-featured h3 a {
+                font-size: 28px;
+                color: #333;
+                margin: 10px 0;
+                display: block;
+            }
+
+            .product-featured .features span {
+                display: inline-block;
+                margin-right: 15px;
+                font-size: 14px;
+                color: #666;
+            }
+
+            .product-featured .price-action {
+                margin-top: 25px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .product-featured .price {
+                color: #7db931;
+                font-weight: 900;
+                margin-bottom: 0;
+            }
+
+            .btn-subscribe {
+                background: #7db931;
+                color: white !important;
+                padding: 10px 25px;
+                border-radius: 50px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .btn-subscribe:hover {
+                background: #5a8a20;
+                box-shadow: 0 4px 12px rgba(125, 185, 49, 0.3);
+            }
+
+            /* --- Small Card Refinement --- */
+            .product-card-sm .product-content {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .product-card-sm h5 {
+                font-size: 16px;
+                height: 40px; /* Ensures alignment if titles are long */
+                overflow: hidden;
+            }
+
+            .product-card-sm h6 {
+                color: #7db931;
+                font-weight: 700;
+                font-size: 18px;
+            }
+
+            /* --- Featured Card Advanced Styling --- */
+            .product-featured {
+                border: none;
+                border-radius: 20px;
+                background: #ffffff;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            }
+
+            .featured-img-wrapper {
+                padding: 30px;
+                background: #f9fbf7; /* Light greenish tint background for image */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .featured-img-wrapper img {
+                max-height: 400px;
+                object-fit: contain;
+                filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            }
+
+            .featured-details {
+                padding: 40px !important;
+            }
+
+            .featured-details h3 {
+                font-size: 32px;
+                font-weight: 900;
+                margin: 10px 0 20px 0;
+            }
+
+            /* The Details Grid inside the card */
+            .detail-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin: 25px 0;
+                border-top: 1px solid #eee;
+                padding-top: 25px;
+            }
+
+            .detail-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .detail-item i {
+                color: #7db931;
+                font-size: 18px;
+                background: #f1f8e9;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .detail-item span {
+                font-size: 13px;
+                line-height: 1.4;
+                color: #555;
+            }
+
+            /* Price and Action Styling */
+            .price-action-section {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            .price-tag .amount {
+                font-size: 36px;
+                font-weight: 900;
+                color: #333;
+            }
+
+            .price-tag .currency, .price-tag .unit {
+                color: #7db931;
+                font-weight: 700;
+            }
+
+            .btn-subscribe-large {
+                background: #7db931;
+                color: white !important;
+                padding: 15px 35px;
+                border-radius: 50px;
+                font-size: 18px;
+                font-weight: bold;
+                box-shadow: 0 8px 20px rgba(125, 185, 49, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .btn-subscribe-large:hover {
+                background: #6a9e2a;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 25px rgba(125, 185, 49, 0.4);
+            }
+
+            /* Mobile Adjustments */
+            @media (max-width: 768px) {
+                .detail-grid { grid-template-columns: 1fr; }
+                .price-action-section { flex-direction: column; align-items: flex-start; gap: 15px; }
+                .featured-details { padding: 25px !important; }
+            }
+            .product-featured {
+                border: 1px solid #7db931; /* Thin primary border */
+                outline: 5px solid rgba(125, 185, 49, 0.05); /* Soft outer "air" border */
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft elevation */
+                transition: all 0.4s ease;
+            }
+
+            .product-featured:hover {
+                border-color: #5a8a20;
+                outline-color: rgba(125, 185, 49, 0.15); /* Glow intensifies on hover */
+                box-shadow: 0 15px 40px rgba(125, 185, 49, 0.2);
+            }
+            /* --- ENHANCE BIG CARD IMAGE --- */
+
+            /* 1. Remove padding from the left side so image can touch edges if desired */
+            .product-featured .featured-img-wrapper {
+                padding: 0;
+                overflow: hidden;
+                height: 100%; /* Ensures it matches the content height */
+                background: #f9fbf7;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* 2. Scale the image size up */
+            .product-featured .featured-img-wrapper img {
+                width: 100%;
+                height: auto;
+                max-height: 500px; /* Increased from 400px */
+                object-fit: contain;
+                padding: 20px; /* Small cushion so it doesn't look cramped */
+                transform: scale(1.1); /* Subtle boost to the actual image size */
+                transition: transform 0.5s ease;
+            }
+
+            /* 3. Hover effect for the big image */
+            .product-featured:hover .featured-img-wrapper img {
+                transform: scale(1.15); /* Slightly zooms on hover */
+            }
+
+            /* 4. Ensure the layout proportions are balanced on Desktop */
+            @media (min-width: 992px) {
+                .product-featured .col-lg-5 {
+                    flex: 0 0 45%; /* Makes the image column wider */
+                    max-width: 45%;
+                }
+                .product-featured .col-lg-7 {
+                    flex: 0 0 55%;
+                    max-width: 55%;
+                }
+            }
+
+            /* Makes the container the reference point for the stretched link */
+            .position-relative {
+                position: relative;
+            }
+
+            /* Stretches the link to fill the entire parent container */
+            .stretched-link::after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                pointer-events: auto;
+                content: "";
+                background-color: rgba(0,0,0,0); /* Invisible overlay */
+            }
+
+            /* Optional: Improve the hover feel since the whole card is now a button */
+            .product-item:hover {
+                cursor: pointer;
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+        </style>
 </head>
 
 <body>
@@ -69,8 +361,62 @@
 								<a data-target="list"><i class="fas fa-list"></i></a>
 							</div>
 						</div> -->
+                    <div class="col-12 mb-5">
+                        <div class="product-item product-featured">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5 col-md-6">
+                                    <div class="product-thumb featured-img-wrapper">
+                                        <img src="assets/images/shop/00.jpg" alt="Desi Cow Milk" class="img-fluid">
+                                        <span class="badge-featured"><i class="fas fa-star"></i> Most Subscribed</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-6">
+                                    <div class="product-content featured-details">
+                                        <div class="brand-tag">Premium Ahimsa A2 Milk</div>
+                                        <h3><a href="subscribe.php">Desi Cow Milk (500 ml)</a></h3>
+
+                                        <p class="description">
+                                            Pure, unprocessed A2 milk from our happy, grass-fed Desi cows.
+                                            Produced using traditional <b>Ahimsa</b> methods where the calf gets its full share first.
+                                        </p>
+
+                                        <div class="detail-grid">
+                                            <div class="detail-item">
+                                                <i class="fas fa-truck-moving"></i>
+                                                <span><b>Farm to Home</b><br>Delivered within 4-6 hours</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-flask"></i>
+                                                <span><b>No Hormones</b><br>Zero Oxytocin or Antibiotics</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-vial"></i>
+                                                <span><b>Lab Tested</b><br>Rigorous quality checks daily</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-heart"></i>
+                                                <span><b>Ethical</b><br>No Slaughter, Lifetime Care</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="price-action-section">
+                                            <div class="price-tag">
+                                                <span class="currency">Rs.</span>
+                                                <span class="amount">42</span>
+                                                <span class="unit">/ 500ml</span>
+                                            </div>
+                                            <a href="subscribe.php" class="btn-subscribe-large">
+                                                Start Subscription <i class="fas fa-chevron-right ml-2"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 					<div class="shop-product-wrap grid row">
-						<div class="col-lg-4 col-md-6 col-12">
+
+						<!--<div class="col-lg-4 col-md-6 col-12">
 							<div class="product-item">
 								<div class="product-thumb">
 									<img src="assets/images/shop/00.jpg" alt="shop">
@@ -83,28 +429,32 @@
 									<h6>Rs. 42/-</h6>
 								</div>
 							</div>
-						</div>
+						</div>-->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="product-item position-relative">
+                                <div class="product-thumb">
+                                    <img src="assets/images/shop/10.jpg" alt="shop">
+                                </div>
+                                <div class="product-content">
+                                    <h5>
+                                        <a href="https://ecomytra.com/products?cat=16" target="_blank" class="stretched-link">
+                                            Gaulakshmi Cow Ghee 1000ml
+                                        </a>
+                                    </h5>
+                                    <p>
+                                        <span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
+                                    </p>
+                                    <h6>Rs. 2500/-</h6>
+                                </div>
+                            </div>
+                        </div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
-								<div class="product-thumb">
-									<img src="assets/images/shop/10.jpg" alt="shop">
-								</div>
-								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=16" target="_blank">Gaulakshmi Gir Cow Ghee 1000ml</a></h5>
-									<p>
-										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
-									</p>
-									<h6>Rs. 2500/-</h6>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/09.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=16" target="_blank">Ecomytra Desi Cow Milk 1000ml</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=16" target="_blank" class="stretched-link">Ecomytra Desi Cow Milk 1000ml</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>
@@ -116,12 +466,12 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/01.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Ayur Nasal Ghee 10 ml</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Ayur Nasal Ghee 10 ml</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>
@@ -130,12 +480,12 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/02.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Gaunyle 1000 ml</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Gaunyle 1000 ml</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>
@@ -144,12 +494,12 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/08.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Dant Manjan 50 gm</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Dant Manjan 50 gm</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>
@@ -158,12 +508,12 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/07.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Dhoop Big Size 36 Pcs in Box</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Dhoop Big Size 36 Pcs in Box</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>
@@ -173,12 +523,12 @@
 						</div>
 
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/03.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Gobar Kanda Small Size Loose 1 pc.</a>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Gobar Kanda Small Size Loose 1 pc.</a>
 									</h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
@@ -188,12 +538,12 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/04.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Gobar Kanda Big Size Loose 1 pc.</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Gobar Kanda Big Size Loose 1 pc.</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>
@@ -202,12 +552,12 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/05.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Gobar Kanda Small Packet 20 pcs.</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Gobar Kanda Small Packet 20 pcs.</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>
@@ -216,12 +566,12 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="product-item">
+							<div class="product-item position-relative">
 								<div class="product-thumb">
 									<img src="assets/images/shop/06.jpg" alt="shop">
 								</div>
 								<div class="product-content">
-									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank">Gobar Kanda Big Packet 20 pcs.</a></h5>
+									<h5><a href="https://ecomytra.com/products?cat=27" target="_blank" class="stretched-link">Gobar Kanda Big Packet 20 pcs.</a></h5>
 									<p>
 										<span><i class="fas fa-leaf"></i> 100% Natural & Fresh</span>
 									</p>

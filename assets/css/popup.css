@@ -269,7 +269,6 @@
     background: linear-gradient(135deg, #64a019, #83c236);
 
     /* 🟢 FIX 2: Set height to 100% and position sticky */
-    height: 100%; /* Ensures it covers the full height of the popup container */
     position: sticky; /* Makes it stick within the scrolling parent */
     top: 0; /* Sticks it to the top */
 

@@ -345,12 +345,12 @@
 
                             <div class="row">
                                 <div class="col-md-12 mb-3">
-                                    <input type="text" class="w-100" name="fullname" id="fullname"
+                                    <input type="text" class="w-100" name="fullname" id="fullname1"
                                         placeholder="Full Name" required>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                    <input type="tel" class="w-100" name="phone" id="phone" placeholder="Phone Number"
+                                    <input type="tel" class="w-100" name="phone" id="phone1" placeholder="Phone Number"
                                         required>
                                 </div>
 
@@ -360,7 +360,7 @@
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                    <input type="number" class="w-100" name="pincode" id="pincode"
+                                    <input type="number" class="w-100" name="pincode" id="pincode1"
                                         placeholder="Pin Code" required>
                                 </div>
 
@@ -990,7 +990,7 @@
     </script>
 
     <script>
-        $(document).ready(function () {
+       /* $(document).ready(function () {
 
             $('#fullname').on('input', function () {
                 this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
@@ -1003,7 +1003,69 @@
             });
         });
 
-        function closePopup() {
+        $(document).ready(function () {
+
+            $('#fullname1').on('input', function () {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+            $('#phone1').on('input', function () {
+                this.value = this.value.replace(/\D/g, '').slice(0, 10);
+            });
+            $('#pincode1').on('input', function () {
+                this.value = this.value.replace(/\D/g, '').slice(0, 6);
+            });
+        });*/
+
+
+       $(document).ready(function () {
+
+           function validateName(input) {
+               let val = input.value.replace(/[^a-zA-Z\s]/g, '');
+               input.value = val;
+
+               if (val.length > 0 && val.length < 3) {
+                   input.setCustomValidity("Name must be at least 3 characters");
+               } else {
+                   input.setCustomValidity("");
+               }
+           }
+
+           function validatePhone(input) {
+               let val = input.value.replace(/\D/g, '').slice(0, 10);
+               input.value = val;
+
+               if (val.length !== 10) {
+                   input.setCustomValidity("Mobile number must be exactly 10 digits");
+               } else {
+                   input.setCustomValidity("");
+               }
+           }
+
+           function validatePincode(input) {
+               let val = input.value.replace(/\D/g, '').slice(0, 6);
+               input.value = val;
+
+               if (val.length !== 6) {
+                   input.setCustomValidity("Pincode must be exactly 6 digits");
+               } else {
+                   input.setCustomValidity("");
+               }
+           }
+
+           // Normal fields
+           $('#fullname').on('input', function () { validateName(this); });
+           $('#phone').on('input', function () { validatePhone(this); });
+           $('#pincode').on('input', function () { validatePincode(this); });
+
+           // Fields with 1
+           $('#fullname1').on('input', function () { validateName(this); });
+           $('#phone1').on('input', function () { validatePhone(this); });
+           $('#pincode1').on('input', function () { validatePincode(this); });
+
+       });
+
+
+       function closePopup() {
             $('#popupOverlay').fadeOut();
         }
     </script>

@@ -209,11 +209,11 @@
 
                             <div class="row">
                                 <div class="col-md-12 mb-3">
-                                    <input type="text" class="w-100" name="fullname" placeholder="Full Name" required>
+                                    <input type="text" class="w-100" name="fullname" id="fullname" placeholder="Full Name" required>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                    <input type="tel" class="w-100" name="phone" placeholder="Phone Number" required>
+                                    <input type="tel" class="w-100" name="phone" id="phone" placeholder="Phone Number" required>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
@@ -344,6 +344,49 @@
                 allowClear: true // Optional: Allow the user to clear the selection
             });
         });
+
+        $(document).ready(function () {
+
+            function validateName(input) {
+                let val = input.value.replace(/[^a-zA-Z\s]/g, '');
+                input.value = val;
+
+                if (val.length > 0 && val.length < 3) {
+                    input.setCustomValidity("Name must be at least 3 characters");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validatePhone(input) {
+                let val = input.value.replace(/\D/g, '').slice(0, 10);
+                input.value = val;
+
+                if (val.length !== 10) {
+                    input.setCustomValidity("Mobile number must be exactly 10 digits");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validatePincode(input) {
+                let val = input.value.replace(/\D/g, '').slice(0, 6);
+                input.value = val;
+
+                if (val.length !== 6) {
+                    input.setCustomValidity("Pincode must be exactly 6 digits");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            // Normal fields
+            $('#fullname').on('input', function () { validateName(this); });
+            $('#phone').on('input', function () { validatePhone(this); });
+            $('#pincode').on('input', function () { validatePincode(this); });
+
+        });
+
     </script>
     <script src="assets/js/fontawesome.min.js"></script>
     <script src="assets/js/jquery.counterup.min.js"></script>

@@ -65,11 +65,11 @@
     <section class="blog style-2 faq-section padding-top" style="width:100%;">
         <div class="container-fluid px-4"> <!-- full width -->
             <div class="">
-                <div class="section-header w-100 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
+                <!--<div class="section-header w-100 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
                     <h2>FAQ</h2>
                     <h2><span>Frequently Asked Questions</span></h2>
                     <p>Find answers to common questions about our Happy Cows products and natural dairy process.</p>
-                </div>
+                </div>-->
 
                 <div class="section-wrapper row justify-content-center">
                     <div class="col-lg-10 col-md-11 col-sm-12">

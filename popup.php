@@ -204,6 +204,22 @@
         color: #333333;
     }
 
+    /* --- ENHANCED IMAGE SIZE --- */
+    .popup-left img {
+        display: block;
+        margin: 0 auto 15px auto; /* Centers the image and adds space below */
+        width: 85%;               /* Adjust this percentage to scale the image */
+        max-width: 320px;         /* Prevents it from becoming too massive on desktops */
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    /* Optional: Slight hover effect to make it feel interactive */
+    .popup-left img:hover {
+        transform: scale(1.05);
+    }
+
+
 </style>
 <div class="popup-overlay" id="popupOverlay">
     <div class="popup" id="popupBox">

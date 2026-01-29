@@ -67,9 +67,9 @@
 						<form id="contactForm" class="contact-form d-flex flex-wrap justify-content-between">
 							<input type="hidden" name="form_type" value="contact_form">
 
-							<input type="text" name="name" placeholder="Your Name" required>
-							<input type="email" name="email" placeholder="Your Email" required>
-							<input type="tel" name="phone" placeholder="Phone" required> <!-- Fixed -->
+							<input type="text" name="name" id="name" placeholder="Your Name" required>
+							<input type="email" name="email" id="email" placeholder="Your Email" required>
+							<input type="tel" name="phone" placeholder="Phone" id="phone" required> <!-- Fixed -->
 
 							<input type="text" name="subject" placeholder="Subject" required> <!-- Fixed -->
 
@@ -140,7 +140,7 @@
 		class="w-100" height="450" style="border:0;" allowfullscreen="" loading="lazy"
 		referrerpolicy="no-referrer-when-downgrade"></iframe>
 	<!-- gmap section ending here -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- footer section start here -->
 	<?php require_once('footer.php'); ?>
 	<!-- footer section start here -->
@@ -162,6 +162,85 @@
 	<script src="assets/js/swiper.min.js"></script>
 	<script src="assets/js/functions.js"></script>
 	<script src="assets/js/subscription-form-submission.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            function validateName(input) {
+                let val = input.value.replace(/[^a-zA-Z\s]/g, '');
+                input.value = val;
+
+                if (val.length < 3) {
+                    input.setCustomValidity("Name must be at least 3 characters");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validatePhone(input) {
+                let val = input.value.replace(/\D/g, '').slice(0, 10);
+                input.value = val;
+
+                if (val.length !== 10) {
+                    input.setCustomValidity("Mobile number must be exactly 10 digits");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validateEmail(input) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(input.value)) {
+                    input.setCustomValidity("Please enter a valid email address");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validateMinLength(input, min, message) {
+                if (input.value.trim().length < min) {
+                    input.setCustomValidity(message);
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validateRobotCheckbox() {
+                const checkbox = document.querySelector('input[name="not_robot"]');
+                if (!checkbox.checked) {
+                    checkbox.setCustomValidity("Please confirm you are not a robot");
+                } else {
+                    checkbox.setCustomValidity("");
+                }
+            }
+
+            // Bind events
+            $('#name').on('input', function () { validateName(this); });
+            $('#phone').on('input', function () { validatePhone(this); });
+            $('#email').on('input', function () { validateEmail(this); });
+
+            $('input[name="subject"]').on('input', function () {
+                validateMinLength(this, 10, "Subject must be at least 10 characters");
+            });
+
+            $('textarea[name="message"]').on('input', function () {
+                validateMinLength(this, 10, "Message must be at least 10 characters");
+            });
+
+            $('input[name="not_robot"]').on('change', function () {
+                validateRobotCheckbox();
+            });
+
+            // Final submit validation
+            $('#contactForm').on('submit', function () {
+                validateRobotCheckbox();
+            });
+
+        });
+
+
+    </script>
 </body>
 
 

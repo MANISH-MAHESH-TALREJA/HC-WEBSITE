@@ -144,3 +144,17 @@
     </div>
 </footer>
 
+<div class="contact-buttons-left">
+    <div class="phone">
+        <a href="tel:919222988818" target="_blank" title="Call Happy Cows">
+            <img src="assets/images/phone.gif" alt="Call Happy Cows">
+        </a>
+    </div>
+
+    <div class="whatsapp">
+        <a href="https://api.whatsapp.com/send?phone=919222988818&text=Hello%20Happy%20Cows!%20I’d%20like%20to%20know%20more%20about%20your%20products."
+           target="_blank" title="Chat on WhatsApp">
+            <img src="assets/images/wpg.gif" alt="WhatsApp Happy Cows">
+        </a>
+    </div>
+</div>

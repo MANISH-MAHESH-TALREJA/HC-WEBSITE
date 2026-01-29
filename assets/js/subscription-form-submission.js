@@ -183,38 +183,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: "POST",
                 body: formData
             })
-                .then(async res => {
-                    const text = await res.text();
-                    console.log("RAW RESPONSE:", text);
-                    return text;
-                })
+                .then(res => res.text())
                 .then(text => {
-                    console.log("RAW RESPONSE: 02", text);
-                    // Try JSON, fallback to success
-                    try {
-                        JSON.parse(text);
-                    } catch (e) {
-                        console.warn("Non-JSON response, continuing anyway");
+                    console.log("RAW RESPONSE:", text);
+
+                    // 1️⃣ Hide loader
+                    if (loadingSpinner) {
+                        loadingSpinner.style.display = "none";
                     }
 
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Subscription Received!',
-                        html: `
-            <p>Your subscription request has been<br>
-            received. A <b>Happy Cows Milk</b> representative<br>
-            will contact you within <b>24–48 hours</b> for<br>
-            verification.</p>
-            <br>
-            <b>Thank you!</b>
-        `,
-                        confirmButtonColor: '#7db931'
-                    });
 
-                    subscriptionForm.reset();
+
+                    // Small delay so DOM updates cleanly
+                    setTimeout(() => {
+                        // 3️⃣ Show SweetAlert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Information Received!',
+                            html: `
+                <p>Your request has been received. <br>A <b>Happy Cows </b> representative<br>
+                will contact you within <b>24–48 hours</b> for<br>
+                your query.</p>
+                <br>
+                <b>Thank you!</b>
+            `,
+                            confirmButtonColor: '#7db931'
+                        });
+
+                        contactForm.reset();
+                    }, 200);
                 })
                 .catch(err => {
                     console.error("FETCH ERROR:", err);
+
+                    // Hide loader even on error
+                    if (loadingSpinner) {
+                        loadingSpinner.style.display = "none";
+                    }
 
                     Swal.fire({
                         icon: 'error',
