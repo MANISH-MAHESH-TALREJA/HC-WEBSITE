@@ -1,25 +1,4 @@
-// document.getElementById("subscribeForm").addEventListener("submit", function(e) {
-//     e.preventDefault();
-//     console.log("Form submitted");
 
-//     var formData = new FormData(this);
-
-//     fetch("https://script.google.com/macros/s/AKfycbwzTsYddYHYdctLMwH_LzPlGZDn_ZUtXUyyeUqJIWbTyz79-DKyiCkXVXy8bpzAO6Ch/exec", {
-//         method: "POST",
-//         body: formData
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//         document.getElementById("formMsg").innerHTML = `<p style="color:green">${data.message}</p>`;
-//         document.getElementById("subscribeForm").reset();
-//     })
-//     .catch(error => {
-//         document.getElementById("formMsg").innerHTML = `<p style="color:red">Error submitting form.</p>`;
-//         console.error("Error!", error);
-//     });
-// });
-// const url = "https://script.google.com/macros/s/AKfycbwzTsYddYHYdctLMwH_LzPlGZDn_ZUtXUyyeUqJIWbTyz79-DKyiCkXVXy8bpzAO6Ch/exec";
 const url = "https://script.google.com/macros/s/AKfycbwzTsYddYHYdctLMwH_LzPlGZDn_ZUtXUyyeUqJIWbTyz79-DKyiCkXVXy8bpzAO6Ch/exec";
 const loadingSpinner = document.getElementById("loadingSpinner");
 

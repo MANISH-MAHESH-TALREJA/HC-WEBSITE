@@ -43,32 +43,7 @@
 			}
 		</style>
 	</head>
-    <script>
-        (function () {
-            const POPUP_KEY = "happycows_popup_submitted_at";
-            const COOLDOWN_TIME = 30 * 60 * 1000; // 30 minutes
-            const SHOW_DELAY = 5000; // 5 seconds
 
-            function shouldShowPopup() {
-                const submittedAt = localStorage.getItem(POPUP_KEY);
-                if (!submittedAt) return true;
-
-                const elapsed = Date.now() - parseInt(submittedAt, 10);
-                return elapsed > COOLDOWN_TIME;
-            }
-
-            function showPopupWithDelay() {
-                setTimeout(() => {
-                    if (shouldShowPopup()) {
-                        const popup = document.getElementById("popupOverlay");
-                        if (popup) popup.style.display = "flex";
-                    }
-                }, SHOW_DELAY);
-            }
-
-            document.addEventListener("DOMContentLoaded", showPopupWithDelay);
-        })();
-    </script>
 
 <body>
 
@@ -481,6 +456,7 @@
 			</div>
 		</div>
 	</section>
+    <br/><br/><br/>
     <div id="loadingSpinner" style="display:none; text-align:center;">
         <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="60">
         <p>Submitting...</p>

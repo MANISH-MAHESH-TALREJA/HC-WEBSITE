@@ -32,11 +32,12 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/slick.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
 </head>
 
 <body>
-	<?php require_once('nav.php'); ?>
-	<?php require_once('popup.php'); ?>
+<?php require_once('nav.php'); ?>
+<?php require_once('popup.php'); ?>
 
 	<!-- page header section ending here -->
 	<section class="page-header padding-tb page-header-bg-1">
@@ -70,7 +71,7 @@
 
 							<input type="text" name="name" id="name" placeholder="Your Name" required>
 							<input type="email" name="email" id="email" placeholder="Your Email" required>
-							<input type="tel" name="phone" placeholder="Phone" id="phone" required> <!-- Fixed -->
+							<input type="tel" name="phone" placeholder="Phone" id="phone2" required> <!-- Fixed -->
 
 							<input type="text" name="subject" placeholder="Subject" required> <!-- Fixed -->
 
@@ -219,7 +220,7 @@
 
             // Bind events
             $('#name').on('input', function () { validateName(this); });
-            $('#phone').on('input', function () { validatePhone(this); });
+            $('#phone2').on('input', function () { validatePhone(this); });
             $('#email').on('input', function () { validateEmail(this); });
 
             $('input[name="subject"]').on('input', function () {
@@ -244,31 +245,6 @@
 
     </script>
     <script>
-        /* $(document).ready(function () {
-
-             $('#fullname').on('input', function () {
-                 this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-             });
-             $('#phone').on('input', function () {
-                 this.value = this.value.replace(/\D/g, '').slice(0, 10);
-             });
-             $('#pincode').on('input', function () {
-                 this.value = this.value.replace(/\D/g, '').slice(0, 6);
-             });
-         });
-
-         $(document).ready(function () {
-
-             $('#fullname1').on('input', function () {
-                 this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-             });
-             $('#phone1').on('input', function () {
-                 this.value = this.value.replace(/\D/g, '').slice(0, 10);
-             });
-             $('#pincode1').on('input', function () {
-                 this.value = this.value.replace(/\D/g, '').slice(0, 6);
-             });
-         });*/
 
 
         $(document).ready(function () {

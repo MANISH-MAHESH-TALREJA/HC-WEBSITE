@@ -450,7 +450,10 @@
         </div>
     </section>
     <br /><br /><br />
-
+    <div id="loadingSpinner" style="display:none; text-align:center;">
+        <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="60">
+        <p>Submitting...</p>
+    </div>
     <!-- footer section start here -->
     <?php require_once('footer.php'); ?>
     <!-- footer section start here -->
@@ -471,8 +474,6 @@
     <script src="assets/js/theia-sticky-sidebar.js"></script>
     <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/functions.js"></script>
-    <script src="assets/js/popup.js"></script>
-    <script src="assets/js/subscription-form-submission.js"></script>
     <script>
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
