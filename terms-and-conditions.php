@@ -6,15 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Meta -->
-    <meta name="description"
-        content="Terms & Conditions for HappyCows — Ahimsa A2 Milk, organic farming, delivery policies, usage terms and customer guidelines.">
-    <meta name="keywords" content="HappyCows Terms, Conditions, A2 Milk, Ahimsa Milk Policy, HappyCows Policies">
-    <meta name="author" content="HappyCows Team">
+    <?php
+        // Include the SEO helper
+        require_once 'seo-helper.php';
+
+        // Get SEO data for current page
+        $currentPage = getCurrentPage();
+        $seo = getSEOData($currentPage);
+    ?>
+
+    <title><?php echo htmlspecialchars($seo['title']); ?></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Dynamic SEO Meta -->
+    <meta name="description" content="<?php echo htmlspecialchars($seo['description']); ?>">
+    <meta name="keywords" content="<?php echo htmlspecialchars($seo['keywords']); ?>">
+    <meta name="author" content="<?php echo htmlspecialchars($seo['author']); ?>">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/logo/02.png">
-    <link rel="apple-touch-icon" href="assets/images/logo/02.png">
+    <link rel="icon" type="image/png" href="<?php echo htmlspecialchars($seo['favicon']); ?>">
+    <link rel="apple-touch-icon" href="<?php echo htmlspecialchars($seo['apple_touch_icon']); ?>">
 
     <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:300,400,500,700,900&display=swap"
         rel="stylesheet">

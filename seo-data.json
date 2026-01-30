@@ -1,0 +1,40 @@
+{
+  "global": {
+    "author": "HappyCows Team",
+    "keywords": "HappyCows, Ahimsa Milk, A2 Milk, ISKCON, Cow Protection, Dairy Farm, Organic Milk, hrishikesh",
+    "favicon": "assets/images/logo/02.png",
+    "apple_touch_icon": "assets/images/logo/02.png"
+  },
+  "pages": {
+    "index.php": {
+      "title": "HappyCows – Ahimsa A2 Milk",
+      "description": "HappyCows provides 100% pure Ahimsa A2 milk from protected cows, cared for with love and devotion. No artificial insemination, no slaughter — only compassion.",
+      "page_specific_keywords": "hc, happy, home page"
+    },
+    "faq.php": {
+      "title": "FAQ – HappyCows A2 Milk",
+      "description": "Frequently asked questions about HappyCows A2 milk, cow protection, and our natural dairy products. Get answers about A1 vs A2 milk differences.",
+      "page_specific_keywords": "hc faq, frequently asked questions"
+    },
+    "about.php": {
+      "title": "About Us – HappyCows",
+      "description": "Learn about HappyCows' mission, our cruelty-free dairy farm, and commitment to providing pure A2 milk from protected cows.",
+      "page_specific_keywords": "about happycows, our story"
+    },
+    "products.php": {
+      "title": "Our Products – HappyCows A2 Milk",
+      "description": "Explore our range of pure A2 milk products including fresh milk, ghee, paneer, and traditional Ayurvedic products.",
+      "page_specific_keywords": "products, a2 milk products"
+    },
+    "subscribe.php": {
+      "title": "Subscribe – HappyCows A2 Milk",
+      "description": "Subscribe to get fresh A2 milk delivered to your doorstep. Choose your preferred quantity and delivery schedule.",
+      "page_specific_keywords": "subscribe, milk delivery"
+    },
+    "contact.php": {
+      "title": "Contact Us – HappyCows",
+      "description": "Get in touch with HappyCows team. Contact information, location, and inquiry form for A2 milk delivery.",
+      "page_specific_keywords": "contact, get in touch"
+    }
+  }
+}
