@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     // 2️⃣ Close popup first
                     try {
                         // 2️⃣ Trigger popup submission event
- const event = new Event('popupSubmitted');
-    document.dispatchEvent(event);
+                        const successEvent = new CustomEvent('popupSubmittedSuccess');
+                        document.dispatchEvent(successEvent);
                         // 🔒 BLOCK POPUP FOR 30 MINUTES
                         localStorage.setItem("happycows_popup_submitted_at", Date.now());
                         closePopup();
@@ -87,7 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (loadingSpinner) {
                         loadingSpinner.style.display = "none";
                     }
-
+// In the catch block, add:
+                    const failureEvent = new CustomEvent('popupSubmittedFailed');
+                    document.dispatchEvent(failureEvent);
                     Swal.fire({
                         icon: 'error',
                         title: 'Submission Failed',
@@ -128,7 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     try {
                         // 🔒 BLOCK POPUP FOR 30 MINUTES
                         localStorage.setItem("happycows_popup_submitted_at", Date.now());
-
+                        const successEvent = new CustomEvent('popupSubmittedSuccess');
+                        document.dispatchEvent(successEvent);
                         closePopup();
                     } catch (e) {
                         console.warn("closePopup() not defined or failed", e);
@@ -162,7 +165,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (loadingSpinner) {
                         loadingSpinner.style.display = "none";
                     }
-
+// In the catch block, add:
+                    const failureEvent = new CustomEvent('popupSubmittedFailed');
+                    document.dispatchEvent(failureEvent);
                     Swal.fire({
                         icon: 'error',
                         title: 'Submission Failed',
