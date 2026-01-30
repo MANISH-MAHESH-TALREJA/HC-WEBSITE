@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // 2️⃣ Close popup first
                     try {
+                        // 2️⃣ Trigger popup submission event
+ const event = new Event('popupSubmitted');
+    document.dispatchEvent(event);
+                        // 🔒 BLOCK POPUP FOR 30 MINUTES
+                        localStorage.setItem("happycows_popup_submitted_at", Date.now());
                         closePopup();
                     } catch (e) {
                         console.warn("closePopup() not defined or failed", e);
@@ -121,6 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // 2️⃣ Close popup first
                     try {
+                        // 🔒 BLOCK POPUP FOR 30 MINUTES
+                        localStorage.setItem("happycows_popup_submitted_at", Date.now());
+
                         closePopup();
                     } catch (e) {
                         console.warn("closePopup() not defined or failed", e);

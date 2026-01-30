@@ -403,8 +403,9 @@
     <script src="assets/js/theia-sticky-sidebar.js"></script>
     <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/functions.js"></script>
-    <script src="assets/js/popup.js"></script>
+    <!--<script src="assets/js/popup.js"></script>-->
     <script src="assets/js/subscription-form-submission.js"></script>
+    
 </body>
 
 </html>

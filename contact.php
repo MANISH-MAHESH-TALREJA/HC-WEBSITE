@@ -241,6 +241,130 @@
 
 
     </script>
+    <script>
+        /* $(document).ready(function () {
+
+             $('#fullname').on('input', function () {
+                 this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+             });
+             $('#phone').on('input', function () {
+                 this.value = this.value.replace(/\D/g, '').slice(0, 10);
+             });
+             $('#pincode').on('input', function () {
+                 this.value = this.value.replace(/\D/g, '').slice(0, 6);
+             });
+         });
+
+         $(document).ready(function () {
+
+             $('#fullname1').on('input', function () {
+                 this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+             });
+             $('#phone1').on('input', function () {
+                 this.value = this.value.replace(/\D/g, '').slice(0, 10);
+             });
+             $('#pincode1').on('input', function () {
+                 this.value = this.value.replace(/\D/g, '').slice(0, 6);
+             });
+         });*/
+
+
+        $(document).ready(function () {
+
+            function validateName(input) {
+                let val = input.value.replace(/[^a-zA-Z\s]/g, '');
+                input.value = val;
+
+                if (val.length > 0 && val.length < 3) {
+                    input.setCustomValidity("Name must be at least 3 characters");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validatePhone(input) {
+                let val = input.value.replace(/\D/g, '').slice(0, 10);
+                input.value = val;
+
+                if (val.length !== 10) {
+                    input.setCustomValidity("Mobile number must be exactly 10 digits");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function validatePincode(input) {
+                let val = input.value.replace(/\D/g, '').slice(0, 6);
+                input.value = val;
+
+                if (val.length !== 6) {
+                    input.setCustomValidity("Pincode must be exactly 6 digits");
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            // Normal fields
+            $('#fullname').on('input', function () { validateName(this); });
+            $('#phone').on('input', function () { validatePhone(this); });
+            $('#pincode').on('input', function () { validatePincode(this); });
+
+            // Fields with 1
+            $('#fullname1').on('input', function () { validateName(this); });
+            $('#phone1').on('input', function () { validatePhone(this); });
+            $('#pincode1').on('input', function () { validatePincode(this); });
+
+        });
+
+
+        function closePopup() {
+            $('#popupOverlay').fadeOut();
+        }
+    </script>
+    <script>
+        function showDropdown() {
+            const ul = document.getElementById("locationList");
+            ul.style.display = "block";
+
+            // Ensure all items are visible when first clicked
+            const li = ul.getElementsByTagName("li");
+            for (let i = 0; i < li.length; i++) {
+                li[i].style.display = "";
+            }
+        }
+
+        function filterLocations() {
+            const input = document.getElementById("locationInput");
+            const filter = input.value.toUpperCase();
+            const ul = document.getElementById("locationList");
+            const li = ul.getElementsByTagName("li");
+
+            ul.style.display = "block";
+
+            for (let i = 0; i < li.length; i++) {
+                let txtValue = li[i].textContent || li[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        function selectLocation(val) {
+            document.getElementById("locationInput").value = val;
+            document.getElementById("locationValue").value = val;
+            document.getElementById("locationList").style.display = "none";
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function(event) {
+            const dropdown = document.querySelector(".searchable-dropdown");
+            if (!dropdown.contains(event.target)) {
+                document.getElementById("locationList").style.display = "none";
+            }
+        });
+    </script>
 </body>
 
 

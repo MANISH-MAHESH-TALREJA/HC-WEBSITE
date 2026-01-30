@@ -272,6 +272,7 @@ $product = $products[$id];
 	<script src="assets/js/theia-sticky-sidebar.js"></script>
 	<script src="assets/js/swiper.min.js"></script>
 	<script src="assets/js/functions.js"></script>
+	
 </body>
 
 </html>
