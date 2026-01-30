@@ -219,7 +219,7 @@
                         <li><a href="https://www.instagram.com/happycowsa2milk?igsh=MWx1aXQzNGRqdDRxYw=="
                                 class="instagram d-flex justify-content-center align-items-center"><i
                                     class="fab fa-instagram"></i></a></li>
-                        <li><a href="https://www.instagram.com/happycowsa2milk?igsh=MWx1aXQzNGRqdDRxYw=="
+                        <li><a href="https://www.facebook.com/happycowsa2milk/"
                                 class="facebook d-flex justify-content-center align-items-center"><i
                                     class="fab fa-facebook"></i></a></li>
                     </ul>
