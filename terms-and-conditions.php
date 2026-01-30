@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
     <style>
         .terms-wrapper a{
             color: #5d9913;
@@ -475,8 +476,23 @@
     <!-- footer -->
     <?php require_once('footer.php'); ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/fontawesome.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src='assets/js/jquery.easing.js'></script>
+    <script src='assets/js/slick.min.js'></script>
+    <script src="assets/js/lightcase.js"></script>
+    <script src="assets/js/map-custom.js"></script>
+    <script src="assets/js/circular-countdown.js"></script>
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/theia-sticky-sidebar.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/functions.js"></script>
     <script src="assets/js/popup.js"></script>
     <script src="assets/js/subscription-form-submission.js"></script>

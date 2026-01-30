@@ -4,8 +4,8 @@
 
     // ========== CONFIGURATION ==========
     const POPUP_KEY = "happycows_popup_submitted_at";
-    const COOLDOWN_TIME = 30 * 60 * 1000; // 30 minutes
-    const SHOW_DELAY = 5000; // 5 seconds
+    const COOLDOWN_TIME = 15 * 60 * 1000; // 30 minutes
+    const SHOW_DELAY = 4000; // 4 seconds
     const INITIAL_DELAY = 3500; // 3.5 seconds (from original popup.js)
 
     // ========== STATE ==========
