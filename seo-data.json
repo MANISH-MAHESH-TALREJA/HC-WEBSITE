@@ -1,40 +1,70 @@
 {
   "global": {
     "author": "HappyCows Team",
-    "keywords": "HappyCows, Ahimsa Milk, A2 Milk, ISKCON, Cow Protection, Dairy Farm, Organic Milk, hrishikesh",
+    "keywords": "HappyCows, Ahimsa Milk, A2 Milk, ISKCON, Cow Protection, Dairy Farm, Organic Milk, hrishikesh, Pure Milk, Natural Dairy, Cow Care",
     "favicon": "assets/images/logo/02.png",
-    "apple_touch_icon": "assets/images/logo/02.png"
+    "apple_touch_icon": "assets/images/logo/02.png",
+    "site_name": "HappyCows A2 Milk"
   },
   "pages": {
     "index.php": {
-      "title": "HappyCows – Ahimsa A2 Milk",
-      "description": "HappyCows provides 100% pure Ahimsa A2 milk from protected cows, cared for with love and devotion. No artificial insemination, no slaughter — only compassion.",
-      "page_specific_keywords": "hc, happy, home page"
+      "title": "HappyCows – 100% Pure Ahimsa A2 Milk | Home",
+      "description": "Get fresh 100% pure Ahimsa A2 milk from protected cows. HappyCows provides cruelty-free, chemical-free dairy with daily home delivery. No artificial insemination, no slaughter — only compassion.",
+      "page_specific_keywords": "hc, happy, home, a2 milk home delivery, fresh milk, desi cow milk, ahimsa dairy",
+      "canonical": "index.php",
+      "og_type": "website"
     },
     "faq.php": {
-      "title": "FAQ – HappyCows A2 Milk",
-      "description": "Frequently asked questions about HappyCows A2 milk, cow protection, and our natural dairy products. Get answers about A1 vs A2 milk differences.",
-      "page_specific_keywords": "hc faq, frequently asked questions"
+      "title": "FAQ – HappyCows A2 Milk | Frequently Asked Questions",
+      "description": "Find answers to common questions about A1 vs A2 milk differences, benefits of desi cow milk, delivery schedules, subscription plans, and our cow protection practices.",
+      "page_specific_keywords": "hc faq, frequently asked questions, a1 a2 milk difference, milk faq, delivery faq, subscription questions",
+      "canonical": "faq.php",
+      "og_type": "article"
     },
     "about.php": {
-      "title": "About Us – HappyCows",
-      "description": "Learn about HappyCows' mission, our cruelty-free dairy farm, and commitment to providing pure A2 milk from protected cows.",
-      "page_specific_keywords": "about happycows, our story"
+      "title": "About Us – HappyCows | Our Story & Mission",
+      "description": "Learn about HappyCows' journey, our commitment to cow protection, sustainable farming practices, and providing pure A2 milk from happy, free-grazing cows.",
+      "page_specific_keywords": "about happycows, our story, mission, vision, cow protection, sustainable farming, our team",
+      "canonical": "about.php",
+      "og_type": "article"
     },
     "products.php": {
-      "title": "Our Products – HappyCows A2 Milk",
-      "description": "Explore our range of pure A2 milk products including fresh milk, ghee, paneer, and traditional Ayurvedic products.",
-      "page_specific_keywords": "products, a2 milk products"
+      "title": "Our Products – Pure A2 Milk & Dairy Products | HappyCows",
+      "description": "Explore our range of pure A2 milk products: fresh milk, ghee, paneer, yogurt, and traditional Ayurvedic products. All natural, chemical-free, from protected cows.",
+      "page_specific_keywords": "products, a2 milk products, desi ghee, paneer, yogurt, ayurvedic products, milk products, dairy products",
+      "canonical": "products.php",
+      "og_type": "product"
     },
     "subscribe.php": {
-      "title": "Subscribe – HappyCows A2 Milk",
-      "description": "Subscribe to get fresh A2 milk delivered to your doorstep. Choose your preferred quantity and delivery schedule.",
-      "page_specific_keywords": "subscribe, milk delivery"
+      "title": "Subscribe – A2 Milk Home Delivery | HappyCows",
+      "description": "Subscribe to HappyCows for fresh A2 milk delivered to your doorstep. Choose quantity, delivery frequency, and enjoy pure, chemical-free milk daily.",
+      "page_specific_keywords": "subscribe, milk delivery, home delivery, subscription plans, milk subscription, order milk online",
+      "canonical": "subscribe.php",
+      "og_type": "website"
     },
     "contact.php": {
-      "title": "Contact Us – HappyCows",
-      "description": "Get in touch with HappyCows team. Contact information, location, and inquiry form for A2 milk delivery.",
-      "page_specific_keywords": "contact, get in touch"
+      "title": "Contact Us – Get in Touch | HappyCows A2 Milk",
+      "description": "Contact HappyCows team for inquiries, support, or feedback. Find our contact details, location, and send us a message for A2 milk delivery service.",
+      "page_specific_keywords": "contact, get in touch, contact us, customer support, inquiry, feedback, location",
+      "canonical": "contact.php",
+      "og_type": "website"
+    },
+    "terms-and-conditions.php": {
+      "title": "Terms & Conditions – HappyCows A2 Milk",
+      "description": "Read HappyCows terms and conditions for milk subscription, delivery policies, payment terms, and customer agreements for our A2 milk services.",
+      "page_specific_keywords": "terms and conditions, t&c, terms of service, delivery policy, subscription terms, payment terms",
+      "canonical": "terms-and-conditions.php",
+      "og_type": "article"
     }
+  },
+  "social": {
+    "facebook_app_id": "",
+    "twitter_site": "@happycows",
+    "twitter_creator": "@happycows"
+  },
+  "open_graph": {
+    "default_image": "assets/images/logo/02.png",
+    "locale": "en_US",
+    "type": "website"
   }
 }

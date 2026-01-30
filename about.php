@@ -26,11 +26,17 @@
         <meta name="keywords" content="<?php echo htmlspecialchars($seo['keywords']); ?>">
         <meta name="author" content="<?php echo htmlspecialchars($seo['author']); ?>">
 
+        <!-- Canonical URL -->
+        <link rel="canonical" href="<?php echo htmlspecialchars($seo['canonical']); ?>">
+
+        <!-- Generate Open Graph Tags -->
+        <?php echo generateOpenGraphTags($seo); ?>
+
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="<?php echo htmlspecialchars($seo['favicon']); ?>">
         <link rel="apple-touch-icon" href="<?php echo htmlspecialchars($seo['apple_touch_icon']); ?>">
 
-		<link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:300,400,500,700,900&display=swap"
+        <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:300,400,500,700,900&display=swap"
 			rel="stylesheet">
 
 		<link
