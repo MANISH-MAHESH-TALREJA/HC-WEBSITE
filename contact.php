@@ -36,6 +36,7 @@
 
 <body>
 	<?php require_once('nav.php'); ?>
+	<?php require_once('popup.php'); ?>
 
 	<!-- page header section ending here -->
 	<section class="page-header padding-tb page-header-bg-1">
@@ -144,7 +145,7 @@
 	<!-- footer section start here -->
 	<?php require_once('footer.php'); ?>
 	<!-- footer section start here -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/fontawesome.min.js"></script>
 	<script src="assets/js/jquery.counterup.min.js"></script>
@@ -161,8 +162,9 @@
 	<script src="assets/js/theia-sticky-sidebar.js"></script>
 	<script src="assets/js/swiper.min.js"></script>
 	<script src="assets/js/functions.js"></script>
+	<script src="assets/js/popup.js"></script>
 	<script src="assets/js/subscription-form-submission.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script>
         $(document).ready(function () {

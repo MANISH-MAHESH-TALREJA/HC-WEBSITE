@@ -481,6 +481,10 @@
 			</div>
 		</div>
 	</section>
+    <div id="loadingSpinner" style="display:none; text-align:center;">
+        <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="60">
+        <p>Submitting...</p>
+    </div>
 	<!-- histori section ending here -->
 
 	<!-- sponsor section start here -->
@@ -491,7 +495,7 @@
 	<?php require_once('footer.php'); ?>
 	<!-- footer section start here -->
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/fontawesome.min.js"></script>
 	<script src="assets/js/jquery.counterup.min.js"></script>
@@ -508,6 +512,7 @@
 	<script src="assets/js/swiper.min.js"></script>
 	<script src="assets/js/functions.js"></script>
 	<script src="assets/js/popup.js"></script>
+    <script src="assets/js/subscription-form-submission.js"></script>
     <script>
         /* $(document).ready(function () {
 
