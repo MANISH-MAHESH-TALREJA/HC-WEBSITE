@@ -425,7 +425,7 @@
                                                 <span class="unit">/ 500ml</span>
                                             </div>
                                             <a href="subscribe.php" class="btn-subscribe-large">
-                                                Start Subscription <i class="fas fa-chevron-right ml-2"></i>
+                                                Subscribe <i class="fas fa-chevron-right ml-2"></i>
                                             </a>
                                         </div>
                                     </div>
