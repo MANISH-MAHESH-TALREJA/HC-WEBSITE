@@ -64,7 +64,7 @@
                                     <img src="https://e7.pngegg.com/pngimages/333/237/png-clipart-food-safety-and-standards-authority-of-india-logo-india-food-text-thumbnail.png" alt="FSSAI" style="width:22px; height:auto;">
                                 </div>
                                 <div class="content-part">
-                                    <p class="mb-0">FSSAI Licence No: 12345678901234</p>
+                                    <p class="mb-0">FSSAI Licence No: 11523020000369</p>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center mb-2">
@@ -106,9 +106,9 @@
                     <div class="post-item">
                         <div class="post-title"><h4>Our Policy</h4></div>
                         <ul class="quick-links-list" style="list-style: none; padding: 0;">
-                            <li><a href="#">Become a Distributor</a></li>
-                            <li><a href="#">Become a Delivery Associate</a></li>
-                            <li><a href="#">Refer & Earn</a></li>
+                            <li><a target="_blank" href="https://forms.gle/UWw24UjMb2W52PPj7">Become a Distributor</a></li>
+                            <li><a target="_blank" href="https://forms.gle/g4XjkibkN4LEm4cDA">Become a Delivery Associate</a></li>
+                            <li><a target="_blank" href="https://forms.gle/UoRSaUmht1B4jhPA6">Refer & Earn</a></li>
                         </ul>
                         <ul class="social-link-list d-flex">
                             <li><a href="https://www.instagram.com/happycowsa2milk?igsh=MWx1aXQzNGRqdDRxYw==" class="instagram"><i class="fab fa-instagram"></i></a></li>
@@ -146,7 +146,7 @@
 
 <div class="contact-buttons-left">
     <div class="phone">
-        <a href="tel:919222988818" target="_blank" title="Call Happy Cows">
+        <a href="tel:9222988818" target="_blank" title="Call Happy Cows">
             <img src="assets/images/phone.gif" alt="Call Happy Cows">
         </a>
     </div>

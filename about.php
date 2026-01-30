@@ -173,7 +173,7 @@
 								<span class="fw-bold">A2 Beta-Casein Protein</span>, free from BCM-7, sourced only from <span class="fw-bold">Indigenous Indian Cow
 								Breeds</span>, linked to benefits like <span class="fw-bold">improved digestion and immunity</span>, contributes to
 								preventing issues like Type-1 diabetes and cardiovascular disease (IHD), is a wholesome
-								choice for infants and adults, is <span class="fw-bold">Whole Milk</pan class="fw-bold"> (none of the essential nutrients
+								choice for infants and adults, is <span class="fw-bold">Whole Milk</span class="fw-bold"> (none of the essential nutrients
 								removed), and gets its yellowish color from <span class="fw-bold">Beta-Carotene</span> (Pro-Vitamin A).</p>
 						</div>
 					</div>
@@ -262,11 +262,11 @@
 			<div class="section-wrapper">
 				<div class="row gap-2">
 					<div class="col-lg-6 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">
-						<img src="https://graceofcows.in/wp-content/uploads/2024/07/Copy-of-Grace-of-Cows-A2-Milk-Lab-Reports-Instagram-Post.png"
+						<img src="assets/images/SCAN001.jpg"
 							alt="A2 Milk Certification Report" class="w-100">
 					</div>
 					<div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s">
-						<img src="https://graceofcows.in/wp-content/uploads/2024/07/Copy-of-Grace-of-Cows-A2-Milk-Lab-Reports-Instagram-Post.png"
+						<img src="assets/images/SCAN002.jpg"
 							alt="A2 Milk Certification Certificate" class="w-100">
 					</div>
 				</div>
