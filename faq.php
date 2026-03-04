@@ -54,6 +54,11 @@
         <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
+        <style>
+            .section-header {
+    margin-bottom: 35px;
+}
+        </style>
     </head>
 
 <body>
@@ -79,14 +84,13 @@
     <!-- page header section ending here -->
 
     <!-- testimonial section ending here -->
-    <section class="blog style-2 faq-section padding-top" style="width:100%;">
+    <section class="blog style-2 faq-section" style="width:100%; padding-top: 50px">
         <div class="container-fluid px-4"> <!-- full width -->
             <div class="">
-                <!--<div class="section-header w-100 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
-                    <h2>FAQ</h2>
-                    <h2><span>Frequently Asked Questions</span></h2>
-                    <p>Find answers to common questions about our Happy Cows products and natural dairy process.</p>
-                </div>-->
+                <div class="section-header w-100 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
+                    <h3>FAQ<span> (Frequently Asked Questions)</span></h3>
+                    <p>Find answers to common questions about Happy Cows.</p>
+                </div>
 
                 <div class="section-wrapper row justify-content-center">
                     <div class="col-lg-10 col-md-11 col-sm-12">

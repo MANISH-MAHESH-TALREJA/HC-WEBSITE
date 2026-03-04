@@ -154,7 +154,6 @@
             /* 2. Style the Select2 container to match height and padding */
             .select2-container .select2-selection--single {
                 height: 50px !important; /* Matches your padding/font-size height */
-                display: flex;
                 align-items: center;
                 background-color: white !important;
             }
@@ -163,6 +162,7 @@
             .select2-container--default .select2-selection--single .select2-selection__rendered {
                 color: #333 !important;
                 padding-left: 16px !important;
+                padding-top: 10px;
                 font-size: 16px;
             }
 

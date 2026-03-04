@@ -72,6 +72,10 @@
             .product-featured {
                 padding: 20px;
                 border: 2px solid #7db931;
+                user-select: none; /* Prevent text selection */
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE/Edge */
             }
 
             .product-featured .product-thumb {
@@ -90,6 +94,7 @@
                 border-radius: 20px;
                 font-size: 12px;
                 font-weight: bold;
+                z-index: 2; /* Ensure badge stays above stretched link */
             }
 
             .product-featured .brand-tag {
@@ -105,6 +110,7 @@
                 color: #333;
                 margin: 10px 0;
                 display: block;
+                text-decoration: none;
             }
 
             .product-featured .features span {
@@ -134,6 +140,8 @@
                 border-radius: 50px;
                 font-weight: bold;
                 transition: 0.3s;
+                text-decoration: none;
+                display: inline-block;
             }
 
             .btn-subscribe:hover {
@@ -165,6 +173,7 @@
                 border-radius: 20px;
                 background: #ffffff;
                 box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+                position: relative; /* Required for stretched link positioning */
             }
 
             .featured-img-wrapper {
@@ -173,6 +182,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: relative;
             }
 
             .featured-img-wrapper img {
@@ -228,6 +238,8 @@
                 justify-content: flex-start;
                 gap: 30px;
                 margin-top: 30px;
+                position: relative; /* Ensure it's above stretched link */
+                z-index: 2;
             }
 
             .price-tag .amount {
@@ -250,6 +262,10 @@
                 font-weight: bold;
                 box-shadow: 0 8px 20px rgba(125, 185, 49, 0.3);
                 transition: all 0.3s ease;
+                text-decoration: none;
+                display: inline-block;
+                position: relative;
+                z-index: 3; /* Higher than stretched link */
             }
 
             .btn-subscribe-large:hover {
@@ -258,12 +274,6 @@
                 box-shadow: 0 12px 25px rgba(125, 185, 49, 0.4);
             }
 
-            /* Mobile Adjustments */
-            @media (max-width: 768px) {
-                .detail-grid { grid-template-columns: 1fr; }
-                .price-action-section { flex-direction: column; align-items: flex-start; gap: 15px; }
-                .featured-details { padding: 25px !important; }
-            }
             .product-featured {
                 border: 1px solid #7db931; /* Thin primary border */
                 outline: 5px solid rgba(125, 185, 49, 0.05); /* Soft outer "air" border */
@@ -318,31 +328,439 @@
                 }
             }
 
-            /* Makes the container the reference point for the stretched link */
-            .position-relative {
+            /* Makes the entire featured card clickable */
+            .product-featured.clickable-card {
                 position: relative;
+                cursor: pointer;
             }
 
-            /* Stretches the link to fill the entire parent container */
-            .stretched-link::after {
+            /* Stretches the link to fill the entire featured card */
+            .product-featured .card-link-overlay {
                 position: absolute;
                 top: 0;
-                right: 0;
-                bottom: 0;
                 left: 0;
+                width: 100%;
+                height: 100%;
                 z-index: 1;
-                pointer-events: auto;
-                content: "";
-                background-color: rgba(0,0,0,0); /* Invisible overlay */
-            }
-
-            /* Optional: Improve the hover feel since the whole card is now a button */
-            .product-item:hover {
                 cursor: pointer;
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
 
+            /* Ensure content is above the stretched link */
+            .product-featured .featured-img-wrapper,
+            .product-featured .featured-details,
+            .product-featured .badge-featured,
+            .product-featured .btn-subscribe-large {
+                position: relative;
+                z-index: 2;
+            }
+
+            /* Fix for the subscribe button - make it clickable separately */
+            .product-featured .btn-subscribe-large {
+                position: relative;
+                z-index: 3;
+                pointer-events: auto;
+            }
+
+            /* Prevent text selection on hover */
+            .product-featured * {
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
+
+            /* Mobile Adjustments */
+            @media (max-width: 768px) {
+                .detail-grid { grid-template-columns: 1fr; }
+                .price-action-section { flex-direction: column; align-items: flex-start; gap: 15px; }
+                .featured-details { padding: 25px !important; }
+            }
+
+        </style>
+        <style>
+            <style>
+    /* --- Global Card Improvements --- */
+    .product-item {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #f0f0f0;
+    }
+
+    .product-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(125, 185, 49, 0.15);
+    }
+
+    /* --- Featured Large Card --- */
+    .product-featured {
+        padding: 20px;
+        border: 2px solid #7db931;
+        user-select: none; /* Prevent text selection */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE/Edge */
+    }
+
+    .product-featured .product-thumb {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    /* FIXED: Badge positioning */
+    .badge-featured {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: #7db931;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        z-index: 10; /* High z-index to stay on top */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .badge-featured i {
+        margin-right: 5px;
+    }
+
+    .product-featured .brand-tag {
+        color: #7db931;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+    }
+
+    .product-featured h3 a {
+        font-size: 28px;
+        color: #333;
+        margin: 10px 0;
+        display: block;
+        text-decoration: none;
+    }
+
+    .product-featured .features span {
+        display: inline-block;
+        margin-right: 15px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .product-featured .price-action {
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-featured .price {
+        color: #7db931;
+        font-weight: 900;
+        margin-bottom: 0;
+    }
+
+    .btn-subscribe {
+        background: #7db931;
+        color: white !important;
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-subscribe:hover {
+        background: #5a8a20;
+        box-shadow: 0 4px 12px rgba(125, 185, 49, 0.3);
+    }
+
+    /* --- Small Card Refinement --- */
+    .product-card-sm .product-content {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .product-card-sm h5 {
+        font-size: 16px;
+        height: 40px; /* Ensures alignment if titles are long */
+        overflow: hidden;
+    }
+
+    .product-card-sm h6 {
+        color: #7db931;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    /* --- Featured Card Advanced Styling --- */
+    .product-featured {
+        border: none;
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        position: relative; /* Required for stretched link positioning */
+    }
+
+    .featured-img-wrapper {
+        padding: 0;
+        background: #f9fbf7; /* Light greenish tint background for image */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 100%;
+        min-height: 400px;
+    }
+
+    .featured-img-wrapper img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+        padding: 40px;
+        transform: scale(1.1);
+        transition: transform 0.5s ease;
+    }
+
+    .featured-details {
+        padding: 40px !important;
+    }
+
+    .featured-details h3 {
+        font-size: 32px;
+        font-weight: 900;
+        margin: 10px 0 20px 0;
+        color: #333;
+        line-height: 1.2;
+    }
+
+    /* The Details Grid inside the card */
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+    }
+
+    .detail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .detail-item i {
+        color: #7db931;
+        font-size: 18px;
+        background: #f1f8e9;
+        padding: 10px;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    .detail-item span {
+        font-size: 13px;
+        line-height: 1.4;
+        color: #555;
+    }
+
+    /* Price and Action Styling */
+    .price-action-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 30px;
+        margin-top: 30px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .price-tag .amount {
+        font-size: 36px;
+        font-weight: 900;
+        color: #333;
+    }
+
+    .price-tag .currency, .price-tag .unit {
+        color: #7db931;
+        font-weight: 700;
+    }
+
+    .btn-subscribe-large {
+        background: #7db931;
+        color: white !important;
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 0 8px 20px rgba(125, 185, 49, 0.3);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        z-index: 3; /* Higher than stretched link */
+    }
+
+    .btn-subscribe-large:hover {
+        background: #6a9e2a;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(125, 185, 49, 0.4);
+    }
+
+    .product-featured {
+        border: 1px solid #7db931; /* Thin primary border */
+        outline: 5px solid rgba(125, 185, 49, 0.05); /* Soft outer "air" border */
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft elevation */
+        transition: all 0.4s ease;
+    }
+
+    .product-featured:hover {
+        border-color: #5a8a20;
+        outline-color: rgba(125, 185, 49, 0.15); /* Glow intensifies on hover */
+        box-shadow: 0 15px 40px rgba(125, 185, 49, 0.2);
+    }
+
+    /* --- ENHANCE BIG CARD IMAGE --- */
+    /* 3. Hover effect for the big image */
+    .product-featured:hover .featured-img-wrapper img {
+        transform: scale(1.15); /* Slightly zooms on hover */
+    }
+
+    /* 4. Ensure the layout proportions are balanced on Desktop */
+    @media (min-width: 992px) {
+        .product-featured .col-lg-5 {
+            flex: 0 0 45%; /* Makes the image column wider */
+            max-width: 45%;
+        }
+        .product-featured .col-lg-7 {
+            flex: 0 0 55%;
+            max-width: 55%;
+        }
+        
+        .featured-img-wrapper {
+            min-height: 500px;
+        }
+    }
+
+    /* Makes the entire featured card clickable */
+    .product-featured.clickable-card {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    /* Stretches the link to fill the entire featured card */
+    .product-featured .card-link-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    /* Ensure content is above the stretched link */
+    .product-featured .featured-img-wrapper,
+    .product-featured .featured-details,
+    .product-featured .badge-featured,
+    .product-featured .btn-subscribe-large {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Fix for the subscribe button - make it clickable separately */
+    .product-featured .btn-subscribe-large {
+        position: relative;
+        z-index: 3;
+        pointer-events: auto;
+    }
+
+    /* Prevent text selection on hover */
+    .product-featured * {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    /* Image container specific fixes */
+    .product-thumb {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Ensure badge stays in image container */
+    .product-thumb .badge-featured {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+        .detail-grid { 
+            grid-template-columns: 1fr; 
+        }
+        .price-action-section { 
+            flex-direction: column; 
+            align-items: flex-start; 
+            gap: 15px; 
+        }
+        .featured-details { 
+            padding: 25px !important; 
+        }
+        .featured-img-wrapper {
+            min-height: 300px;
+            padding: 20px;
+        }
+        .featured-img-wrapper img {
+            padding: 20px;
+            max-height: 350px;
+        }
+        .badge-featured {
+            top: 15px;
+            left: 15px;
+            padding: 6px 15px;
+            font-size: 12px;
+        }
+        .featured-details h3 {
+            font-size: 24px;
+        }
+        .price-tag .amount {
+            font-size: 28px;
+        }
+        .btn-subscribe-large {
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 991px) {
+        .featured-img-wrapper {
+            min-height: 350px;
+        }
+        .featured-img-wrapper img {
+            max-height: 400px;
+        }
+    }
+
+</style>
         </style>
 </head>
 
@@ -373,15 +791,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-12 sticky-widget">
-					<!-- <div class="shop-title d-flex flex-wrap justify-content-between">
-							<p>Showing 01 - 12 of 139 Results</p>
-							<div class="product-view-mode">
-								<a class="active" data-target="grid"><i class="fas fa-th"></i></a>
-								<a data-target="list"><i class="fas fa-list"></i></a>
-							</div>
-						</div> -->
                     <div class="col-12 mb-5">
-                        <div class="product-item product-featured">
+                        <!-- Make the entire big card clickable -->
+                        <div class="product-item product-featured clickable-card" onclick="window.location.href='subscribe.php'">
+                            <!-- Overlay link for entire card -->
+                            <a href="subscribe.php" class="card-link-overlay"></a>
+                            
                             <div class="row g-0 align-items-center">
                                 <div class="col-lg-5 col-md-6">
                                     <div class="product-thumb featured-img-wrapper">
@@ -392,7 +807,7 @@
                                 <div class="col-lg-7 col-md-6">
                                     <div class="product-content featured-details">
                                         <div class="brand-tag">Premium Ahimsa A2 Milk</div>
-                                        <h3><a href="subscribe.php">Desi Cow Milk (500 ml)</a></h3>
+                                        <h3>Desi Cow Milk (500 ml)</h3>
 
                                         <p class="description">
                                             Pure, unprocessed A2 milk from our happy, grass-fed Desi cows.
@@ -424,7 +839,8 @@
                                                 <span class="amount">42</span>
                                                 <span class="unit">/ 500ml</span>
                                             </div>
-                                            <a href="subscribe.php" class="btn-subscribe-large">
+                                            <!-- This button will work independently -->
+                                            <a href="subscribe.php" class="btn-subscribe-large" onclick="event.stopPropagation();">
                                                 Subscribe <i class="fas fa-chevron-right ml-2"></i>
                                             </a>
                                         </div>
@@ -600,21 +1016,6 @@
 						</div>
 
 					</div>
-					<!-- <div class="pagination-area  d-flex flex-wrap justify-content-center">
-							<ul class="pagination  d-flex flex-wrap m-0">
-								<li class="prev">
-									<a href="#"><i class="fas fa-angle-double-left"></i></a>
-								</li>
-								<li><a href="#">1</a></li>
-								<li><a href="#"  class="active d-none d-md-block">2</a></li>
-								<li><a href="#" class="d-none d-md-block">3</a></li>
-								<li class="dot">....</li>
-								<li><a href="#" class="d-none d-md-block">4</a></li>
-								<li class="next">
-									<a href="#"><i class="fas fa-angle-double-right"></i></a>
-								</li>
-							</ul>
-						</div> -->
 				</div>
 			</div>
 		</div>

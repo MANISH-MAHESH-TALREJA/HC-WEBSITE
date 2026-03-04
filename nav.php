@@ -88,7 +88,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="https://www.instagram.com/happycowsa2milk?igsh=MWx1aXQzNGRqdDRxYw=="
+							<a href="https://www.facebook.com/happycowsa2milk/"
 								target="_blank">
 								<i class="fab fa-facebook" style="font-size: 1.5em;"></i>
 							</a>

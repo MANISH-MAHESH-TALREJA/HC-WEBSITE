@@ -275,7 +275,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/happycowsa2milk?igsh=MWx1aXQzNGRqdDRxYw=="
+                                <a href="http://facebook.com/happycowsa2milk/"
                                     target="_blank">
                                     <i class="fab fa-facebook" style="font-size: 1.5em;"></i>
                                 </a>
@@ -412,7 +412,6 @@
                                         /* 2. Style the Select2 container to match height and padding */
                                         .select2-container .select2-selection--single {
                                             height: 50px !important; /* Matches your padding/font-size height */
-                                            display: flex;
                                             align-items: center;
                                             background-color: white !important;
                                         }
@@ -422,6 +421,7 @@
                                             color: #333 !important;
                                             padding-left: 16px !important;
                                             font-size: 16px;
+                                            padding-top: 10px;
                                         }
 
                                         /* 4. Match the custom arrow icon */
